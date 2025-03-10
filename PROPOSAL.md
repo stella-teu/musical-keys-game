@@ -47,7 +47,7 @@ My game is inspired by Simon and Dance, Dance, Revolution, in which the computer
     // left element
     // restart element
 
-// 4. Create startGame() function, which calls init() and makes the start game button disappear. Call this when clicking the start button throug an event listener.
+// 4. Create startGame() function, which calls init(). Call this when clicking the start button through an event listener.
 
 // 5. Create an init() function which will keep track of all the variables.
     // at game start: set computer and player sequence, score and game message empty.
