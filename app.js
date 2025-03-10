@@ -15,7 +15,7 @@ const leftArrowElement = document.querySelector('#left');
 //                               EVENT LISTENERS
 document.querySelector("#start").addEventListener('click', startGame);
 document.querySelectorAll(".arrows").forEach(function (arrow) {
-    addEventListener('keydown', updatePlayerSequence);
+    arrow.addEventListener('keyup', updatePlayerSequence);
 })
 document.querySelector("#restart").addEventListener('click', startGame);
 
@@ -30,7 +30,9 @@ function startGame(){
 }
 
 function init(){
-    updateComputerSequence();
+    setTimeout( () => {
+        updateComputerSequence();
+    }, '1000');
     render();
 }
 
@@ -40,15 +42,26 @@ function updateComputerSequence() {
     console.log(randomElement);
     if (randomElement === "up"){
         upArrowElement.style.boxShadow = "0 4px 8px 0 rgba(254, 25, 93, 0.2), 0 6px 20px 0 rgba(254, 25, 93, 0.2)"; // up arrow lights up
+        setTimeout( () => {
+            upArrowElement.style.removeProperty('box-shadow')
+        }, '500');
     } else if (randomElement === "down"){
         downArrowElement.style.boxShadow = "0 4px 8px 0 rgba(254, 25, 93, 0.2), 0 6px 20px 0 rgba(254, 25, 93, 0.2)"; // down arrow lights up
+        setTimeout( () => {
+            downArrowElement.style.removeProperty('box-shadow')
+        }, '500');
     } else if (randomElement === "right"){
-        rightArrowElement.style.boxShadow = "0 4px 8px 0 rgba(52, 11, 255, 0.2), 0 6px 20px 0 rgba(52, 11, 255, 0.2))"; //right arrow lights up
+        rightArrowElement.style.boxShadow = "0 4px 8px 0 rgba(52, 11, 255, 0.2), 0 6px 20px 0 rgba(52, 11, 255, 0.2)"; //right arrow lights up
+        setTimeout( () => {
+            rightArrowElement.style.removeProperty('box-shadow')
+        }, '500');
     } else {
         leftArrowElement.style.boxShadow = "0 4px 8px 0 rgba(52, 11, 255, 0.2), 0 6px 20px 0 rgba(52, 11, 255, 0.2)"; // left arrow lights up
+        setTimeout( () => {
+            leftArrowElement.style.removeProperty('box-shadow')
+        }, '500');
     }
 }
-updateComputerSequence();
 
 function getRandomElement(arr){
     const randomIndex = Math.floor(Math.random() * arr.length)
@@ -69,9 +82,28 @@ function checkWin(){
 
 }
 
-function updatePlayerSequence(){
-
-}
+function updatePlayerSequence(event){
+ if (event.code === "ArrowUp"){
+        upArrowElement.style.boxShadow = "0 4px 8px 0 rgba(254, 25, 93, 0.2), 0 6px 20px 0 rgba(254, 25, 93, 0.2)"; // up arrow lights up
+        setTimeout( () => {
+            upArrowElement.style.removeProperty('box-shadow')
+        }, '500');
+    } else if (event.code === "ArrowDown"){
+        downArrowElement.style.boxShadow = "0 4px 8px 0 rgba(254, 25, 93, 0.2), 0 6px 20px 0 rgba(254, 25, 93, 0.2)"; // down arrow lights up
+        setTimeout( () => {
+            downArrowElement.style.removeProperty('box-shadow')
+        }, '500');
+    } else if (event.code === "ArrowRight"){
+        rightArrowElement.style.boxShadow = "0 4px 8px 0 rgba(52, 11, 255, 0.2), 0 6px 20px 0 rgba(52, 11, 255, 0.2)"; //right arrow lights up
+        setTimeout( () => {
+            rightArrowElement.style.removeProperty('box-shadow')
+        }, '500');
+    } else if (event.code === "ArrowLeft"){
+        leftArrowElement.style.boxShadow = "0 4px 8px 0 rgba(52, 11, 255, 0.2), 0 6px 20px 0 rgba(52, 11, 255, 0.2)"; //right arrow lights up
+        setTimeout( () => {
+            leftArrowElement.style.removeProperty('box-shadow')
+        }, '500');
+    }}
 
 //                               PSEUDOCODE
 // 1. Define variables for:
