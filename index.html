@@ -9,17 +9,21 @@
 </head>
 <body>
     <h1>Simon Game</h1>
-    <section>
-        <button>Start</button>
-        <button>Restart</button>
-        <p>Instructions: Copy the arrows shown by the computer by clicking the your up, down, right or left key. Win by successfully copying a sequence of 10 keys.</p>
+    <section id="game">
+         <nav class="settings">
+            <button id="start">Start</button>
+            <button>Restart</button>
+            <p><span>Instructions:</span> <br>
+                Copy the arrows shown by the computer by clicking the your up, down, right or left key. Win by successfully copying a sequence of 10 keys.</p>
+        </nav>
+        <section class="arrows"> 
+            <div id="up">⬆️</div>
+            <div id="left">⬅️</div>
+            <div id="message"></div>
+            <div id="right">➡️</div>
+            <div id="down">⬇️</div>
+        </section>
+        <h2 id="score">Score:</h2>
     </section>
-    <section>
-        <div>⬆</div>
-        <div>⬅</div>
-        <div>➡</div>
-        <div>⬇</div>
-    </section>
-    <h2>Score:</h2>
 </body>
 </html>
