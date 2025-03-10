@@ -35,7 +35,7 @@ My game is inspired by Simon and Dance, Dance, Revolution, in which the computer
     // the player's sequence (array)
     // the player's score
     // options (array) with button directions
-    // click count = 0 
+    // key count = 0 
 
 // 2. Save cache element for  game message.
 
@@ -55,7 +55,7 @@ My game is inspired by Simon and Dance, Dance, Revolution, in which the computer
     // call a render() function to update all variables
 
 // 6. Create a render() function:
-    // set click count to 0
+    // set key count to 0
     // calls updateScore()
     // calls checkWin()
 
@@ -65,9 +65,9 @@ My game is inspired by Simon and Dance, Dance, Revolution, in which the computer
     // saves choice to computer sequence array
 
 // 8. Create an updatePlayerSequence() function:
-    // use event listeners from buttons to save player's choice in the player's sequence array AND add 1 to click count
+    // use event listeners from buttons to save player's choice in the player's sequence array AND add 1 to key count
     // also activate visual and auditory signifier through event listener
-    // IF click count matches the computer sequence's arrat length, call render()
+    // IF key count matches the computer sequence's arrat length, call render()
 
 // 9. Create an updateScore() function which adds 1 to player's score IF player sequence array matches computer sequence array.
 
