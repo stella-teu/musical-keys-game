@@ -1,19 +1,31 @@
-# Simon Game
-A Simon game inspired by Dance, Dance, Revolution.
+# Simon Dance Game
+My game is inspired by Simon and Dance, Dance, Revolution, in which the computer shows a sequence of keys to press, and the player has to copy it on their own keyboard step by step. It will keep a score of how many keys the player has succesfully remembered and copied; the player wins when they succesfully copy a sequence of 10 keys (a score of 10).
 
+## Wire Stories
+### Landing Page
+![Landing Page](./pictures/ladning-page.png)
+### Winning Page
+![Winning Page](./pictures/winning-page.png)
 ## User Story
 
+### MVP
 - As a user, I want to see a landing page that let's me know I'm at the right place.
 - As a user, I want to see a start button, so I won't miss the start of the game.
-- As a user, I want to see 4 buttons that clearly symbolize the up, down, left and right buttons.
-- As a user, I want to be able to easily click these buttons.
-- As a user, I want a visual and auditory signifier that will show me what sequence of buttons I must click (i.e. color of button changes, opacity goes up, etc...)
-- As a user, I want to see the same visual and auditory signifier when clicking a button.
+- As a user, I want to see 4 images that clearly symbolize the up, down, left and right keys, and for them to react accordingly to what I type.
+- As a user, I want a visual and auditory signifier that will show me what sequence of leys I must type (i.e. color of button changes, opacity goes up, etc...)
+- As a user, I want to see the same visual and auditory signifier when typing a key.
 - As a user, I want the game to start with one button, wait for me to copy, then add to the sequence bit by bit.
-- As a user, I want the game not change, but simply add on to its current sequence until I lose.
+- As a user, I want the game to not change, but simply add on to its current sequence until I lose.
 - As a user, I want to see my points keeping track every time I copy the sequence right.
 - As a user, I want to see a "game over" message and a restart button when I lose.
-- As a user, I want to see a "winner" message when I have succesfully copied a sequence of 10 buttons.
+- As a user, I want to see a "winner" message when I have succesfully copied a sequence of 10 keys.
+
+### Stretch Goals
+- As a user, I want to play for an infinite amount of time. The game only stops when I lose and there is no winning.
+- As a user, I want my high score to be stored and saved in the "infinite" version.
+- As a user, I want there to be a "hard" version in which diagonal buttons are an option (pressing two buttons at the same time).
+- As a user, I want the design to resemble the original DDR game.
+- As a user, I want a dancing mascot which reacts to every clicked button.
 
 ## Pseudocode
 
@@ -31,11 +43,11 @@ A Simon game inspired by Dance, Dance, Revolution.
 
 // 4. Add event listeners to:
     // start button
-    // up button element
-    // down button element
-    // right button element
-    // left button element
-    // restart button element
+    // up element
+    // down element
+    // right element
+    // left element
+    // restart element
 
 // 5. Create startGame() function, which calls init() and makes the start game button disappear. Call this when clicking the start button throug an event listener.
 
