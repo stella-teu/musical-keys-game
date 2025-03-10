@@ -30,18 +30,16 @@ My game is inspired by Simon and Dance, Dance, Revolution, in which the computer
 ## Pseudocode
 
 ```
-// 1. Define a constant for up, down, left and right arrows.
-
-// 2. Define variables for:
+// 1. Define variables for:
     // the computer's sequence (array)
     // the player's sequence (array)
     // the player's score
     // options (array) with button directions
     // click count = 0 
 
-// 3. Save cache element for  game message.
+// 2. Save cache element for  game message.
 
-// 4. Add event listeners to:
+// 3. Add event listeners to:
     // start button
     // up element
     // down element
@@ -49,34 +47,34 @@ My game is inspired by Simon and Dance, Dance, Revolution, in which the computer
     // left element
     // restart element
 
-// 5. Create startGame() function, which calls init() and makes the start game button disappear. Call this when clicking the start button throug an event listener.
+// 4. Create startGame() function, which calls init() and makes the start game button disappear. Call this when clicking the start button throug an event listener.
 
-// 6. Create an init() function which will keep track of all the variables.
+// 5. Create an init() function which will keep track of all the variables.
     // at game start: set computer and player sequence, score and game message empty.
     // call updateComputerSequence()
     // call a render() function to update all variables
 
-// 7. Create a render() function:
+// 6. Create a render() function:
     // set click count to 0
     // calls updateScore()
     // calls checkWin()
 
-// 8. Create a updateComputerSequence() function:
+// 7. Create a updateComputerSequence() function:
     // randomly chooses a button to start sequence from choices array
     // activates chosen button with visual and auditory signifier
     // saves choice to computer sequence array
 
-// 9. Create an updatePlayerSequence() function:
+// 8. Create an updatePlayerSequence() function:
     // use event listeners from buttons to save player's choice in the player's sequence array AND add 1 to click count
     // also activate visual and auditory signifier through event listener
     // IF click count matches the computer sequence's arrat length, call render()
 
-// 10. Create an updateScore() function which adds 1 to player's score IF player sequence array matches computer sequence array.
+// 9. Create an updateScore() function which adds 1 to player's score IF player sequence array matches computer sequence array.
 
-// 11. Create checkWin() function:
+// 10. Create checkWin() function:
     //  IF score = 10, set game message to congratulatory message.
     // ELSE IF the game sequence and player sequence don't match, set game message to losing message.
     // ELSE IF call updateComputerSequence().
 
-// 12. Call init() when reset button is clicked through event listener.
+// 11. Call init() when reset button is clicked through event listener.
 ```
