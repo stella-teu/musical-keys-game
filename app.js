@@ -54,7 +54,7 @@ function loopThroughSequenceWithInterval(){
         testSound.currentTime = 0;
         testSound.play();
         upArrowElement.style.boxShadow =
-          "0 4px 8px 0 rgba(254, 25, 93, 0.2), 0 6px 20px 0 rgba(254, 25, 93, 0.2)"; // up arrow lights up
+          "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(254, 25, 93, 1), 0 0 82px rgba(254, 25, 93, 1),0 0 92px rgba(254, 25, 93, 1), 0 0 102px rgba(254, 25, 93, 1)"; // up arrow lights up
         setTimeout(() => {
           upArrowElement.style.removeProperty("box-shadow");
         }, "500");
@@ -62,7 +62,7 @@ function loopThroughSequenceWithInterval(){
         testSound.currentTime = 0;
         testSound.play();
         downArrowElement.style.boxShadow =
-          "0 4px 8px 0 rgba(254, 25, 93, 0.2), 0 6px 20px 0 rgba(254, 25, 93, 0.2)"; // down arrow lights up
+          "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(254, 25, 93, 1), 0 0 82px rgba(254, 25, 93, 1),0 0 92px rgba(254, 25, 93, 1), 0 0 102px rgba(254, 25, 93, 1)"; // down arrow lights up
         setTimeout(() => {
           downArrowElement.style.removeProperty("box-shadow");
         }, "500");
@@ -70,7 +70,7 @@ function loopThroughSequenceWithInterval(){
         testSound.currentTime = 0;
         testSound.play();
         rightArrowElement.style.boxShadow =
-          "0 4px 8px 0 rgba(52, 11, 255, 0.2), 0 6px 20px 0 rgba(52, 11, 255, 0.2)"; //right arrow lights up
+          "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(52, 11, 255, 1), 0 0 82px rgba(52, 11, 255, 1),0 0 92px rgba(52, 11, 255, 1), 0 0 102px rgba(52, 11, 255, 1)"; //right arrow lights up
         setTimeout(() => {
           rightArrowElement.style.removeProperty("box-shadow");
         }, "500");
@@ -78,7 +78,7 @@ function loopThroughSequenceWithInterval(){
         testSound.currentTime = 0;
         testSound.play();
         leftArrowElement.style.boxShadow =
-          "0 4px 8px 0 rgba(52, 11, 255, 0.2), 0 6px 20px 0 rgba(52, 11, 255, 0.2)"; // left arrow lights up
+          "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(52, 11, 255, 1), 0 0 82px rgba(52, 11, 255, 1),0 0 92px rgba(52, 11, 255, 1), 0 0 102px rgba(52, 11, 255, 1)"; // left arrow lights up
         setTimeout(() => {
           leftArrowElement.style.removeProperty("box-shadow");
         }, "500");
@@ -101,7 +101,7 @@ function updatePlayerSequence(event) {
     testSound.play();
     playerSequence.push(options[0]);
     upArrowElement.style.boxShadow =
-      "0 4px 8px 0 rgba(254, 25, 93, 0.2), 0 6px 20px 0 rgba(254, 25, 93, 0.2)"; // up arrow lights up
+      "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(254, 25, 93, 1), 0 0 82px rgba(254, 25, 93, 1),0 0 92px rgba(254, 25, 93, 1), 0 0 102px rgba(254, 25, 93, 1)"; // up arrow lights up
     setTimeout(() => {
       upArrowElement.style.removeProperty("box-shadow");
     }, "500");
@@ -110,7 +110,7 @@ function updatePlayerSequence(event) {
     testSound.play();
     playerSequence.push(options[1]);
     downArrowElement.style.boxShadow =
-      "0 4px 8px 0 rgba(254, 25, 93, 0.2), 0 6px 20px 0 rgba(254, 25, 93, 0.2)"; // down arrow lights up
+      "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(254, 25, 93, 1), 0 0 82px rgba(254, 25, 93, 1),0 0 92px rgba(254, 25, 93, 1), 0 0 102px rgba(254, 25, 93, 1)"; // down arrow lights up
     setTimeout(() => {
       downArrowElement.style.removeProperty("box-shadow");
     }, "500");
@@ -119,7 +119,7 @@ function updatePlayerSequence(event) {
     testSound.play();
     playerSequence.push(options[2]);
     rightArrowElement.style.boxShadow =
-      "0 4px 8px 0 rgba(52, 11, 255, 0.2), 0 6px 20px 0 rgba(52, 11, 255, 0.2)"; //right arrow lights up
+      "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(52, 11, 255, 1), 0 0 82px rgba(52, 11, 255, 1),0 0 92px rgba(52, 11, 255, 1), 0 0 102px rgba(52, 11, 255, 1)"; //right arrow lights up
     setTimeout(() => {
       rightArrowElement.style.removeProperty("box-shadow");
     }, "500");
@@ -128,7 +128,7 @@ function updatePlayerSequence(event) {
     testSound.play();
     playerSequence.push(options[3]);
     leftArrowElement.style.boxShadow =
-      "0 4px 8px 0 rgba(52, 11, 255, 0.2), 0 6px 20px 0 rgba(52, 11, 255, 0.2)"; //right arrow lights up
+      "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(52, 11, 255, 1), 0 0 82px rgba(52, 11, 255, 1),0 0 92px rgba(52, 11, 255, 1), 0 0 102px rgba(52, 11, 255, 1)"; //right arrow lights up
     setTimeout(() => {
       leftArrowElement.style.removeProperty("box-shadow");
     }, "500");
