@@ -3,7 +3,7 @@ let computerSequence = [];
 let playerSequence = [];
 let playerScore;
 let options = ["up", "down", "right", "left"];
-let keyCount;
+let matchCount = 0;
 
 //                               CACHED ELEMENTS
 const gameMessagElement = document.querySelector("#message");
@@ -11,6 +11,8 @@ const upArrowElement = document.querySelector("#up");
 const downArrowElement = document.querySelector("#down");
 const rightArrowElement = document.querySelector("#right");
 const leftArrowElement = document.querySelector("#left");
+const scoreElement = document.querySelector("h2");
+const arrowsElement = document.querySelector(".arrows")
 
 //                               EVENT LISTENERS
 document.querySelector("#start").addEventListener("click", startGame);
@@ -24,6 +26,7 @@ function startGame() {
   playerSequence = [];
   playerScore = 0;
   gameMessagElement.textContent = "";
+  scoreElement.textContent = "Score: 0"
   sequenceLength = 0;
 }
 
@@ -31,54 +34,55 @@ function init() {
   setTimeout(() => {
     updateComputerSequence();
   }, "1000");
-  render();
 }
 
 function updateComputerSequence() {
   const randomElement = getRandomElement(options);
   computerSequence.push(randomElement);
-  console.log(randomElement);
-  if (randomElement === "up") {
-    upArrowElement.style.boxShadow =
-      "0 4px 8px 0 rgba(254, 25, 93, 0.2), 0 6px 20px 0 rgba(254, 25, 93, 0.2)"; // up arrow lights up
-    setTimeout(() => {
-      upArrowElement.style.removeProperty("box-shadow");
-    }, "500");
-  } else if (randomElement === "down") {
-    downArrowElement.style.boxShadow =
-      "0 4px 8px 0 rgba(254, 25, 93, 0.2), 0 6px 20px 0 rgba(254, 25, 93, 0.2)"; // down arrow lights up
-    setTimeout(() => {
-      downArrowElement.style.removeProperty("box-shadow");
-    }, "500");
-  } else if (randomElement === "right") {
-    rightArrowElement.style.boxShadow =
-      "0 4px 8px 0 rgba(52, 11, 255, 0.2), 0 6px 20px 0 rgba(52, 11, 255, 0.2)"; //right arrow lights up
-    setTimeout(() => {
-      rightArrowElement.style.removeProperty("box-shadow");
-    }, "500");
-  } else {
-    leftArrowElement.style.boxShadow =
-      "0 4px 8px 0 rgba(52, 11, 255, 0.2), 0 6px 20px 0 rgba(52, 11, 255, 0.2)"; // left arrow lights up
-    setTimeout(() => {
-      leftArrowElement.style.removeProperty("box-shadow");
-    }, "500");
+  loopThroughSequenceWithInterval();
+  console.log(computerSequence.length)
+}
+
+function loopThroughSequenceWithInterval(){
+  let i = 0;
+  function next(){
+    if (i < computerSequence.length){
+      if (computerSequence[i] === "up") {
+        upArrowElement.style.boxShadow =
+          "0 4px 8px 0 rgba(254, 25, 93, 0.2), 0 6px 20px 0 rgba(254, 25, 93, 0.2)"; // up arrow lights up
+        setTimeout(() => {
+          upArrowElement.style.removeProperty("box-shadow");
+        }, "500");
+      } else if (computerSequence[i] === "down") {
+        downArrowElement.style.boxShadow =
+          "0 4px 8px 0 rgba(254, 25, 93, 0.2), 0 6px 20px 0 rgba(254, 25, 93, 0.2)"; // down arrow lights up
+        setTimeout(() => {
+          downArrowElement.style.removeProperty("box-shadow");
+        }, "500");
+      } else if (computerSequence[i] === "right") {
+        rightArrowElement.style.boxShadow =
+          "0 4px 8px 0 rgba(52, 11, 255, 0.2), 0 6px 20px 0 rgba(52, 11, 255, 0.2)"; //right arrow lights up
+        setTimeout(() => {
+          rightArrowElement.style.removeProperty("box-shadow");
+        }, "500");
+      } else if(computerSequence[i] === "left"){
+        leftArrowElement.style.boxShadow =
+          "0 4px 8px 0 rgba(52, 11, 255, 0.2), 0 6px 20px 0 rgba(52, 11, 255, 0.2)"; // left arrow lights up
+        setTimeout(() => {
+          leftArrowElement.style.removeProperty("box-shadow");
+        }, "500");
+      }
+      i++;
+      setTimeout(next, "600")
+    }
   }
+  next();
 }
 
 function getRandomElement(arr) {
   const randomIndex = Math.floor(Math.random() * arr.length);
   return arr[randomIndex];
 }
-
-function render() {
-  keyCount = 0;
-  updateScore();
-  checkWin();
-}
-
-function updateScore() {}
-
-function checkWin() {}
 
 function updatePlayerSequence(event) {
   if (event.code === "ArrowUp") {
@@ -109,6 +113,36 @@ function updatePlayerSequence(event) {
     setTimeout(() => {
       leftArrowElement.style.removeProperty("box-shadow");
     }, "500");
+  }
+  console.log(playerSequence.length);
+  if (playerSequence.length === computerSequence.length){
+    console.log("it works");
+    updateScore();
+  }
+}
+
+function updateScore() {
+  for (let i = 0; i < computerSequence.length; i++){
+  if(playerSequence[i] === computerSequence[i]){
+    matchCount += 1;
+  } else {
+    gameMessagElement.textContent = "You lost! Start again?";
+  }
+}
+  if(matchCount === computerSequence.length){
+    playerScore += 1;
+    scoreElement.textContent = "Score: " + playerScore;
+    checkWin();
+    matchCount = 0;
+  }
+}
+
+function checkWin() {
+  if (playerScore === 10){
+    gameMessagElement.textContent = "Congrats! You Won!"
+  } else {
+    playerSequence = [];
+    init();
   }
 }
 
@@ -157,6 +191,6 @@ function updatePlayerSequence(event) {
 // 10. Create checkWin() function:
 //  IF score = 10, set game message to congratulatory message.
 // ELSE IF the game sequence and player sequence don't match, set game message to losing message.
-// ELSE IF call updateComputerSequence().
+// ELSE call updateComputerSequence().
 
 // 11. Call startGame() when reset button is clicked through event listener.
