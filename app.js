@@ -6,17 +6,20 @@ let options = ["up", "down", "right", "left"];
 let matchCount = 0;
 
 //                               CACHED ELEMENTS
-const gameMessagElement = document.querySelector("#message");
 const upArrowElement = document.querySelector("#up");
 const downArrowElement = document.querySelector("#down");
 const rightArrowElement = document.querySelector("#right");
 const leftArrowElement = document.querySelector("#left");
 const scoreElement = document.querySelector("h2");
+const winModalElement = document.getElementById("winning-modal");
+const loseModalElement = document.getElementById("losing-modal");
 
 //                               EVENT LISTENERS
 document.querySelector("#start").addEventListener("click", startGame);
 window.addEventListener("keyup", updatePlayerSequence);
 document.querySelector("#restart").addEventListener("click", startGame);
+document.querySelector("#play-again").addEventListener("click", startGame);
+document.querySelector("#try-again").addEventListener("click", startGame);
 
 //                               FUNCTIONS
 function startGame() {
@@ -24,9 +27,10 @@ function startGame() {
   computerSequence = [];
   playerSequence = [];
   playerScore = 0;
-  gameMessagElement.textContent = "";
   scoreElement.textContent = "Score: 0"
   sequenceLength = 0;
+  winModalElement.style.display = "none";
+  loseModalElement.style.display = "none";
 }
 
 function init() { //puts time interval between different "levels"
@@ -39,7 +43,6 @@ function updateComputerSequence() {
   const randomElement = getRandomElement(options);
   computerSequence.push(randomElement);
   loopThroughSequenceWithInterval();
-  console.log(computerSequence.length)
 }
 
 function loopThroughSequenceWithInterval(){
@@ -113,9 +116,7 @@ function updatePlayerSequence(event) {
       leftArrowElement.style.removeProperty("box-shadow");
     }, "500");
   }
-  console.log(playerSequence.length);
   if (playerSequence.length === computerSequence.length){
-    console.log("it works");
     updateScore();
   }
 }
@@ -125,7 +126,7 @@ function updateScore() {
   if(playerSequence[i] === computerSequence[i]){
     matchCount += 1;
   } else {
-    gameMessagElement.textContent = "You lost! Start again?";
+    loseModalElement.style.display = "block";
   }
 }
   if(matchCount === computerSequence.length){
@@ -138,7 +139,7 @@ function updateScore() {
 
 function checkWin() {
   if (playerScore === 10){
-    gameMessagElement.textContent = "Congrats! You Won!"
+    winModalElement.style.display = "block";
   } else {
     playerSequence = [];
     init();

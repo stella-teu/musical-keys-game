@@ -5,7 +5,7 @@ body {
     display: flex;
 }
 
-.winning-modal {
+#winning-modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -32,7 +32,7 @@ body {
     margin: 0;
 }
 
-.losing-modal {
+#losing-modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -99,7 +99,7 @@ span {
     display: grid;
     grid-template-areas: 
     ". up ."
-    "left message right"
+    "left . right"
     ". down .";
     font-size: 125px;
     text-align: center;
@@ -112,13 +112,6 @@ span {
 
 #left{
     grid-area: left;
-}
-
-#message {
-    grid-area: message;
-    text-align: center;
-    align-content: center;
-    font-size:xx-large;
 }
 
 #right{
