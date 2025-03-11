@@ -4,6 +4,7 @@ let playerSequence = [];
 let playerScore;
 let options = ["up", "down", "right", "left"];
 let matchCount = 0;
+const testSound = new Audio ('./sound-effects/gunshot.mp3');
 
 //                               CACHED ELEMENTS
 const upArrowElement = document.querySelector("#up");
@@ -50,24 +51,32 @@ function loopThroughSequenceWithInterval(){
   function next(){
     if (i < computerSequence.length){
       if (computerSequence[i] === "up") {
+        testSound.currentTime = 0;
+        testSound.play();
         upArrowElement.style.boxShadow =
           "0 4px 8px 0 rgba(254, 25, 93, 0.2), 0 6px 20px 0 rgba(254, 25, 93, 0.2)"; // up arrow lights up
         setTimeout(() => {
           upArrowElement.style.removeProperty("box-shadow");
         }, "500");
       } else if (computerSequence[i] === "down") {
+        testSound.currentTime = 0;
+        testSound.play();
         downArrowElement.style.boxShadow =
           "0 4px 8px 0 rgba(254, 25, 93, 0.2), 0 6px 20px 0 rgba(254, 25, 93, 0.2)"; // down arrow lights up
         setTimeout(() => {
           downArrowElement.style.removeProperty("box-shadow");
         }, "500");
       } else if (computerSequence[i] === "right") {
+        testSound.currentTime = 0;
+        testSound.play();
         rightArrowElement.style.boxShadow =
           "0 4px 8px 0 rgba(52, 11, 255, 0.2), 0 6px 20px 0 rgba(52, 11, 255, 0.2)"; //right arrow lights up
         setTimeout(() => {
           rightArrowElement.style.removeProperty("box-shadow");
         }, "500");
       } else if(computerSequence[i] === "left"){
+        testSound.currentTime = 0;
+        testSound.play();
         leftArrowElement.style.boxShadow =
           "0 4px 8px 0 rgba(52, 11, 255, 0.2), 0 6px 20px 0 rgba(52, 11, 255, 0.2)"; // left arrow lights up
         setTimeout(() => {
@@ -88,6 +97,8 @@ function getRandomElement(arr) {
 
 function updatePlayerSequence(event) {
   if (event.code === "ArrowUp") {
+    testSound.currentTime = 0;
+    testSound.play();
     playerSequence.push(options[0]);
     upArrowElement.style.boxShadow =
       "0 4px 8px 0 rgba(254, 25, 93, 0.2), 0 6px 20px 0 rgba(254, 25, 93, 0.2)"; // up arrow lights up
@@ -95,6 +106,8 @@ function updatePlayerSequence(event) {
       upArrowElement.style.removeProperty("box-shadow");
     }, "500");
   } else if (event.code === "ArrowDown") {
+    testSound.currentTime = 0;
+    testSound.play();
     playerSequence.push(options[1]);
     downArrowElement.style.boxShadow =
       "0 4px 8px 0 rgba(254, 25, 93, 0.2), 0 6px 20px 0 rgba(254, 25, 93, 0.2)"; // down arrow lights up
@@ -102,6 +115,8 @@ function updatePlayerSequence(event) {
       downArrowElement.style.removeProperty("box-shadow");
     }, "500");
   } else if (event.code === "ArrowRight") {
+    testSound.currentTime = 0;
+    testSound.play();
     playerSequence.push(options[2]);
     rightArrowElement.style.boxShadow =
       "0 4px 8px 0 rgba(52, 11, 255, 0.2), 0 6px 20px 0 rgba(52, 11, 255, 0.2)"; //right arrow lights up
@@ -109,6 +124,8 @@ function updatePlayerSequence(event) {
       rightArrowElement.style.removeProperty("box-shadow");
     }, "500");
   } else if (event.code === "ArrowLeft") {
+    testSound.currentTime = 0;
+    testSound.play();
     playerSequence.push(options[3]);
     leftArrowElement.style.boxShadow =
       "0 4px 8px 0 rgba(52, 11, 255, 0.2), 0 6px 20px 0 rgba(52, 11, 255, 0.2)"; //right arrow lights up
