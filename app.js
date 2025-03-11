@@ -12,7 +12,6 @@ const downArrowElement = document.querySelector("#down");
 const rightArrowElement = document.querySelector("#right");
 const leftArrowElement = document.querySelector("#left");
 const scoreElement = document.querySelector("h2");
-const arrowsElement = document.querySelector(".arrows")
 
 //                               EVENT LISTENERS
 document.querySelector("#start").addEventListener("click", startGame);
@@ -30,7 +29,7 @@ function startGame() {
   sequenceLength = 0;
 }
 
-function init() {
+function init() { //puts time interval between different "levels"
   setTimeout(() => {
     updateComputerSequence();
   }, "1000");
