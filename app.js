@@ -4,17 +4,19 @@ let playerSequence = [];
 let playerScore;
 let options = ["up", "down", "right", "left"];
 let matchCount = 0;
-const loseSound = new Audio ('./sound-effects/boo-sound-effect.mp3');
-const upSound = new Audio ('./sound-effects/C-note-up.wav');
+const loseSound = new Audio("./sound-effects/boo-sound-effect.mp3");
+const upSound = new Audio("./sound-effects/C-note-up.wav");
 upSound.volume = 0.1;
-const leftSound = new Audio ('./sound-effects/E-note-left.wav');
+const leftSound = new Audio("./sound-effects/E-note-left.wav");
 leftSound.volume = 0.1;
-const rightSound = new Audio ('./sound-effects/G-noter-right.wav');
+const rightSound = new Audio("./sound-effects/G-noter-right.wav");
 rightSound.volume = 0.1;
-const downSound = new Audio ('./sound-effects/A-note-down.wav');
+const downSound = new Audio("./sound-effects/A-note-down.wav");
 downSound.volume = 0.1;
-const clickSound = new Audio ('./sound-effects/clicking.wav');
-const winSound = new Audio ('./sound-effects/yay-sound.mp3');
+const clickSound = new Audio("./sound-effects/clicking.wav");
+const winSound = new Audio("./sound-effects/yay-sound.mp3");
+const scoreSound = new Audio("./sound-effects/score.wav");
+scoreSound.volume = 0.1;
 
 //                               CACHED ELEMENTS
 const upArrowElement = document.querySelector("#up");
@@ -38,13 +40,14 @@ function startGame() {
   computerSequence = [];
   playerSequence = [];
   playerScore = 0;
-  scoreElement.textContent = "Score: 0"
+  scoreElement.textContent = "Score: 0";
   winModalElement.style.display = "none";
   loseModalElement.style.display = "none";
   init();
 }
 
-function init() { //puts time interval between different "levels"
+function init() {
+  //puts time interval between different "levels"
   setTimeout(() => {
     updateComputerSequence();
   }, "1500");
@@ -59,10 +62,10 @@ function updateComputerSequence() {
   }, "1000");
 }
 
-function loopThroughSequenceWithInterval(){
+function loopThroughSequenceWithInterval() {
   let i = 0;
-  function next(){
-    if (i < computerSequence.length){
+  function next() {
+    if (i < computerSequence.length) {
       if (computerSequence[i] === "up") {
         upSound.currentTime = 0;
         upSound.play();
@@ -87,7 +90,7 @@ function loopThroughSequenceWithInterval(){
         setTimeout(() => {
           rightArrowElement.style.removeProperty("box-shadow");
         }, "500");
-      } else if(computerSequence[i] === "left"){
+      } else if (computerSequence[i] === "left") {
         leftSound.currentTime = 0;
         leftSound.play();
         leftArrowElement.style.boxShadow =
@@ -97,7 +100,7 @@ function loopThroughSequenceWithInterval(){
         }, "500");
       }
       i++;
-      setTimeout(next, "600")
+      setTimeout(next, "600");
     }
   }
   next();
@@ -109,10 +112,10 @@ function getRandomElement(arr) {
 }
 
 function updatePlayerSequence() {
-  window.addEventListener("keyup", playerSequenceUpdator); 
+  window.addEventListener("keyup", playerSequenceUpdator);
 }
 
-function playerSequenceUpdator(event){
+function playerSequenceUpdator(event) {
   if (event.code === "ArrowUp") {
     upSound.currentTime = 0;
     upSound.play();
@@ -150,25 +153,25 @@ function playerSequenceUpdator(event){
       leftArrowElement.style.removeProperty("box-shadow");
     }, "500");
   }
-  if (playerSequence.length === computerSequence.length){
+  if (playerSequence.length === computerSequence.length) {
     updateScore();
     window.removeEventListener("keyup", playerSequenceUpdator);
     console.log("it works");
-}
-};
-
-function updateScore() {
-  for (let i = 0; i < computerSequence.length; i++){
-  if(playerSequence[i] === computerSequence[i]){
-    matchCount += 1;
-  } else {
-    loseSound.currentTime = 0;
-    loseSound.play();
-    loseModalElement.style.display = "block";
   }
 }
-  if(matchCount === computerSequence.length){
-    clickSound.play();
+
+function updateScore() {
+  for (let i = 0; i < computerSequence.length; i++) {
+    if (playerSequence[i] === computerSequence[i]) {
+      matchCount += 1;
+    } else {
+      loseSound.currentTime = 0;
+      loseSound.play();
+      loseModalElement.style.display = "block";
+    }
+  }
+  if (matchCount === computerSequence.length) {
+    scoreSound.play();
     playerScore += 1;
     scoreElement.textContent = "Score: " + playerScore;
     checkWin();
@@ -177,15 +180,15 @@ function updateScore() {
 }
 
 function checkWin() {
-  if (playerScore === 5){
+  if (playerScore === 10) {
     winSound.currentTime = 0;
-    winSound.play()
+    winSound.play();
     winModalElement.style.display = "block";
   } else {
     playerSequence = [];
     init();
   }
-} 
+}
 
 //                               PSEUDOCODE
 // 1. Define variables for:
