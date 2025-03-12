@@ -4,7 +4,18 @@ let playerSequence = [];
 let playerScore;
 let options = ["up", "down", "right", "left"];
 let matchCount = 0;
-const testSound = new Audio ('./sound-effects/gunshot.mp3');
+const loseSound = new Audio ('./sound-effects/boo-sound-effect.mp3');
+const upSound = new Audio ('./sound-effects/C-note-up.wav');
+upSound.volume = 0.1;
+const leftSound = new Audio ('./sound-effects/E-note-left.wav');
+leftSound.volume = 0.1;
+const rightSound = new Audio ('./sound-effects/G-noter-right.wav');
+rightSound.volume = 0.1;
+const downSound = new Audio ('./sound-effects/A-note-down.wav');
+downSound.volume = 0.1;
+const clickSound = new Audio ('./sound-effects/clicking.wav');
+const winSound = new Audio ('./sound-effects/yay-sound.mp3');
+
 //                               CACHED ELEMENTS
 const upArrowElement = document.querySelector("#up");
 const downArrowElement = document.querySelector("#down");
@@ -22,20 +33,21 @@ document.querySelector("#try-again").addEventListener("click", startGame);
 
 //                               FUNCTIONS
 function startGame() {
-  init();
+  loseSound.pause();
+  clickSound.play();
   computerSequence = [];
   playerSequence = [];
   playerScore = 0;
   scoreElement.textContent = "Score: 0"
-  sequenceLength = 0;
   winModalElement.style.display = "none";
   loseModalElement.style.display = "none";
+  init();
 }
 
 function init() { //puts time interval between different "levels"
   setTimeout(() => {
     updateComputerSequence();
-  }, "1000");
+  }, "1500");
 }
 
 function updateComputerSequence() {
@@ -44,7 +56,7 @@ function updateComputerSequence() {
   loopThroughSequenceWithInterval();
   setTimeout(() => {
     updatePlayerSequence();
-  }, "3000");
+  }, "1000");
 }
 
 function loopThroughSequenceWithInterval(){
@@ -52,32 +64,32 @@ function loopThroughSequenceWithInterval(){
   function next(){
     if (i < computerSequence.length){
       if (computerSequence[i] === "up") {
-        testSound.currentTime = 0;
-        testSound.play();
+        upSound.currentTime = 0;
+        upSound.play();
         upArrowElement.style.boxShadow =
           "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(254, 25, 93, 1), 0 0 82px rgba(254, 25, 93, 1),0 0 92px rgba(254, 25, 93, 1), 0 0 102px rgba(254, 25, 93, 1)"; // up arrow lights up
         setTimeout(() => {
           upArrowElement.style.removeProperty("box-shadow");
         }, "500");
       } else if (computerSequence[i] === "down") {
-        testSound.currentTime = 0;
-        testSound.play();
+        downSound.currentTime = 0;
+        downSound.play();
         downArrowElement.style.boxShadow =
           "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(254, 25, 93, 1), 0 0 82px rgba(254, 25, 93, 1),0 0 92px rgba(254, 25, 93, 1), 0 0 102px rgba(254, 25, 93, 1)"; // down arrow lights up
         setTimeout(() => {
           downArrowElement.style.removeProperty("box-shadow");
         }, "500");
       } else if (computerSequence[i] === "right") {
-        testSound.currentTime = 0;
-        testSound.play();
+        rightSound.currentTime = 0;
+        rightSound.play();
         rightArrowElement.style.boxShadow =
           "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(52, 11, 255, 1), 0 0 82px rgba(52, 11, 255, 1),0 0 92px rgba(52, 11, 255, 1), 0 0 102px rgba(52, 11, 255, 1)"; //right arrow lights up
         setTimeout(() => {
           rightArrowElement.style.removeProperty("box-shadow");
         }, "500");
       } else if(computerSequence[i] === "left"){
-        testSound.currentTime = 0;
-        testSound.play();
+        leftSound.currentTime = 0;
+        leftSound.play();
         leftArrowElement.style.boxShadow =
           "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(52, 11, 255, 1), 0 0 82px rgba(52, 11, 255, 1),0 0 92px rgba(52, 11, 255, 1), 0 0 102px rgba(52, 11, 255, 1)"; // left arrow lights up
         setTimeout(() => {
@@ -102,8 +114,8 @@ function updatePlayerSequence() {
 
 function playerSequenceUpdator(event){
   if (event.code === "ArrowUp") {
-    testSound.currentTime = 0;
-    testSound.play();
+    upSound.currentTime = 0;
+    upSound.play();
     playerSequence.push(options[0]);
     upArrowElement.style.boxShadow =
       "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(254, 25, 93, 1), 0 0 82px rgba(254, 25, 93, 1),0 0 92px rgba(254, 25, 93, 1), 0 0 102px rgba(254, 25, 93, 1)"; // up arrow lights up
@@ -111,8 +123,8 @@ function playerSequenceUpdator(event){
       upArrowElement.style.removeProperty("box-shadow");
     }, "500");
   } else if (event.code === "ArrowDown") {
-    testSound.currentTime = 0;
-    testSound.play();
+    downSound.currentTime = 0;
+    downSound.play();
     playerSequence.push(options[1]);
     downArrowElement.style.boxShadow =
       "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(254, 25, 93, 1), 0 0 82px rgba(254, 25, 93, 1),0 0 92px rgba(254, 25, 93, 1), 0 0 102px rgba(254, 25, 93, 1)"; // down arrow lights up
@@ -120,8 +132,8 @@ function playerSequenceUpdator(event){
       downArrowElement.style.removeProperty("box-shadow");
     }, "500");
   } else if (event.code === "ArrowRight") {
-    testSound.currentTime = 0;
-    testSound.play();
+    rightSound.currentTime = 0;
+    rightSound.play();
     playerSequence.push(options[2]);
     rightArrowElement.style.boxShadow =
       "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(52, 11, 255, 1), 0 0 82px rgba(52, 11, 255, 1),0 0 92px rgba(52, 11, 255, 1), 0 0 102px rgba(52, 11, 255, 1)"; //right arrow lights up
@@ -129,8 +141,8 @@ function playerSequenceUpdator(event){
       rightArrowElement.style.removeProperty("box-shadow");
     }, "500");
   } else if (event.code === "ArrowLeft") {
-    testSound.currentTime = 0;
-    testSound.play();
+    leftSound.currentTime = 0;
+    leftSound.play();
     playerSequence.push(options[3]);
     leftArrowElement.style.boxShadow =
       "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(52, 11, 255, 1), 0 0 82px rgba(52, 11, 255, 1),0 0 92px rgba(52, 11, 255, 1), 0 0 102px rgba(52, 11, 255, 1)"; //right arrow lights up
@@ -141,6 +153,7 @@ function playerSequenceUpdator(event){
   if (playerSequence.length === computerSequence.length){
     updateScore();
     window.removeEventListener("keyup", playerSequenceUpdator);
+    console.log("it works");
 }
 };
 
@@ -149,10 +162,13 @@ function updateScore() {
   if(playerSequence[i] === computerSequence[i]){
     matchCount += 1;
   } else {
+    loseSound.currentTime = 0;
+    loseSound.play();
     loseModalElement.style.display = "block";
   }
 }
   if(matchCount === computerSequence.length){
+    clickSound.play();
     playerScore += 1;
     scoreElement.textContent = "Score: " + playerScore;
     checkWin();
@@ -161,7 +177,9 @@ function updateScore() {
 }
 
 function checkWin() {
-  if (playerScore === 10){
+  if (playerScore === 5){
+    winSound.currentTime = 0;
+    winSound.play()
     winModalElement.style.display = "block";
   } else {
     playerSequence = [];
