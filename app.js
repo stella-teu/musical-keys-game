@@ -5,7 +5,6 @@ let playerScore;
 let options = ["up", "down", "right", "left"];
 let matchCount = 0;
 const testSound = new Audio ('./sound-effects/gunshot.mp3');
-
 //                               CACHED ELEMENTS
 const upArrowElement = document.querySelector("#up");
 const downArrowElement = document.querySelector("#down");
@@ -17,7 +16,6 @@ const loseModalElement = document.getElementById("losing-modal");
 
 //                               EVENT LISTENERS
 document.querySelector("#start").addEventListener("click", startGame);
-window.addEventListener("keyup", updatePlayerSequence);
 document.querySelector("#restart").addEventListener("click", startGame);
 document.querySelector("#play-again").addEventListener("click", startGame);
 document.querySelector("#try-again").addEventListener("click", startGame);
@@ -44,6 +42,9 @@ function updateComputerSequence() {
   const randomElement = getRandomElement(options);
   computerSequence.push(randomElement);
   loopThroughSequenceWithInterval();
+  setTimeout(() => {
+    updatePlayerSequence();
+  }, "3000");
 }
 
 function loopThroughSequenceWithInterval(){
@@ -95,7 +96,11 @@ function getRandomElement(arr) {
   return arr[randomIndex];
 }
 
-function updatePlayerSequence(event) {
+function updatePlayerSequence() {
+  window.addEventListener("keyup", playerSequenceUpdator); 
+}
+
+function playerSequenceUpdator(event){
   if (event.code === "ArrowUp") {
     testSound.currentTime = 0;
     testSound.play();
@@ -135,8 +140,9 @@ function updatePlayerSequence(event) {
   }
   if (playerSequence.length === computerSequence.length){
     updateScore();
-  }
+    window.removeEventListener("keyup", playerSequenceUpdator);
 }
+};
 
 function updateScore() {
   for (let i = 0; i < computerSequence.length; i++){
@@ -161,7 +167,7 @@ function checkWin() {
     playerSequence = [];
     init();
   }
-}
+} 
 
 //                               PSEUDOCODE
 // 1. Define variables for:
