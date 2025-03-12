@@ -24,8 +24,9 @@ My game is inspired by Simon and Dance, Dance, Revolution, in which the computer
 - As a user, I want to play for an infinite amount of time. The game only stops when I lose and there is no winning.
 - As a user, I want my high score to be stored and saved in the "infinite" version.
 - As a user, I want there to be a "hard" version in which diagonal buttons are an option (pressing two buttons at the same time).
-- As a user, I want the design to resemble the original DDR game.
 - As a user, I want a dancing mascot which reacts to every clicked button.
+- Lose sound (gun shot) and score increasing sound
+- Don't player play when computer sequence is going.
 
 ## Pseudocode
 
