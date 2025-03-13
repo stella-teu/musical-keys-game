@@ -125,6 +125,7 @@ function updatePlayerSequence(event) {
     setTimeout(() => {
       upArrowElement.style.removeProperty("box-shadow");
     }, "500");
+    checkLastIndex();
   } else if (event.code === "ArrowDown") {
     downSound.currentTime = 0;
     downSound.play();
@@ -134,6 +135,7 @@ function updatePlayerSequence(event) {
     setTimeout(() => {
       downArrowElement.style.removeProperty("box-shadow");
     }, "500");
+    checkLastIndex();
   } else if (event.code === "ArrowRight") {
     rightSound.currentTime = 0;
     rightSound.play();
@@ -143,6 +145,7 @@ function updatePlayerSequence(event) {
     setTimeout(() => {
       rightArrowElement.style.removeProperty("box-shadow");
     }, "500");
+    checkLastIndex();
   } else if (event.code === "ArrowLeft") {
     leftSound.currentTime = 0;
     leftSound.play();
@@ -152,8 +155,16 @@ function updatePlayerSequence(event) {
     setTimeout(() => {
       leftArrowElement.style.removeProperty("box-shadow");
     }, "500");
+    checkLastIndex();
   }
-  if (playerSequence.length === computerSequence.length) {
+}
+
+function checkLastIndex (){
+  if (playerSequence[playerSequence.length - 1] !== computerSequence[playerSequence.length - 1]){
+    loseSound.currentTime = 0;
+    loseSound.play();
+    loseModalElement.style.display = "block";
+  } else if (playerSequence.length === computerSequence.length) {
     updateScore();
     window.removeEventListener("keyup", updatePlayerSequence);
     console.log("it works");
@@ -161,22 +172,12 @@ function updatePlayerSequence(event) {
 }
 
 function updateScore() {
-  for (let i = 0; i < computerSequence.length; i++) {
-    if (playerSequence[i] === computerSequence[i]) {
-      matchCount += 1;
-    } else {
-      loseSound.currentTime = 0;
-      loseSound.play();
-      loseModalElement.style.display = "block";
-    }
-  }
-  if (matchCount === computerSequence.length) {
     scoreSound.play();
     playerScore += 1;
     scoreElement.textContent = "Score: " + playerScore;
     checkWin();
     matchCount = 0;
-  }
+
 }
 
 function checkWin() {
