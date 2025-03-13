@@ -3,7 +3,8 @@ let computerSequence = [];
 let playerSequence = [];
 let playerScore;
 let options = ["up", "down", "right", "left"];
-let matchCount = 0;
+let clickedInfinite = false;
+let highScore = 0;
 const loseSound = new Audio("./sound-effects/boo-sound-effect.mp3");
 const upSound = new Audio("./sound-effects/C-note-up.wav");
 upSound.volume = 0.1;
@@ -27,12 +28,22 @@ const scoreElement = document.querySelector("h2");
 const winModalElement = document.getElementById("winning-modal");
 const loseModalElement = document.getElementById("losing-modal");
 const monkeyElement = document.getElementById("monkey");
+const highScoreElement = document.querySelector("#high-score");
 
 //                               EVENT LISTENERS
-document.querySelector("#start").addEventListener("click", startGame);
+document.querySelector("#start").addEventListener("click", () => {
+  clickedInfinite = false;
+  highScoreElement.style.display = "none";
+  startGame();
+});
 document.querySelector("#restart").addEventListener("click", startGame);
 document.querySelector("#play-again").addEventListener("click", startGame);
 document.querySelector("#try-again").addEventListener("click", startGame);
+document.querySelector("#infinite").addEventListener("click", () => {
+  clickedInfinite = true;
+  highScoreElement.style.display = "block";
+  startGame();
+});
 
 //                               FUNCTIONS
 function startGame() {
@@ -184,21 +195,22 @@ function checkLastIndex (){
   } else if (playerSequence.length === computerSequence.length) {
     updateScore();
     window.removeEventListener("keyup", updatePlayerSequence);
-    console.log("it works");
   }
 }
 
 function updateScore() {
     scoreSound.play();
     playerScore += 1;
+    if (playerScore > highScore){
+      highScore = playerScore;
+      highScoreElement.textContent = "High Score: " + highScore;
+    }
     scoreElement.textContent = "Score: " + playerScore;
     checkWin();
-    matchCount = 0;
-
 }
 
 function checkWin() {
-  if (playerScore === 10) {
+  if (playerScore === 10 && clickedInfinite == false) {
     winSound.currentTime = 0;
     winSound.play();
     winModalElement.style.display = "block";
