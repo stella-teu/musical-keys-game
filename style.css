@@ -72,7 +72,7 @@ h1 {
 
 #game {
   display: grid;
-  grid-template-columns: 3fr 5fr;
+  grid-template-columns: 3fr 3fr 3fr;
 }
 nav {
   margin: 0 0 0 30px;
@@ -112,7 +112,7 @@ span {
     ". down .";
   font-size: 125px;
   text-align: center;
-  justify-content: left;
+  justify-content: center;
 }
 
 #up {

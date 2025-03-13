@@ -26,6 +26,7 @@ const leftArrowElement = document.querySelector("#left");
 const scoreElement = document.querySelector("h2");
 const winModalElement = document.getElementById("winning-modal");
 const loseModalElement = document.getElementById("losing-modal");
+const monkeyElement = document.getElementById("monkey");
 
 //                               EVENT LISTENERS
 document.querySelector("#start").addEventListener("click", startGame);
@@ -35,6 +36,7 @@ document.querySelector("#try-again").addEventListener("click", startGame);
 
 //                               FUNCTIONS
 function startGame() {
+  monkeyElement.src = "./pictures/final-still-monkey.png";
   loseSound.pause();
   clickSound.play();
   computerSequence = [];
@@ -67,12 +69,14 @@ function loopThroughSequenceWithInterval() {
   function next() {
     if (i < computerSequence.length) {
       if (computerSequence[i] === "up") {
+        monkeyElement.src = "./pictures/monkey-up.png";
         upSound.currentTime = 0;
         upSound.play();
         upArrowElement.style.boxShadow =
           "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(254, 25, 93, 1), 0 0 82px rgba(254, 25, 93, 1),0 0 92px rgba(254, 25, 93, 1), 0 0 102px rgba(254, 25, 93, 1)"; // up arrow lights up
         setTimeout(() => {
           upArrowElement.style.removeProperty("box-shadow");
+          monkeyElement.src = "./pictures/final-still-monkey.png";
         }, "500");
       } else if (computerSequence[i] === "down") {
         downSound.currentTime = 0;
@@ -117,6 +121,7 @@ function activateEventListener() {
 
 function updatePlayerSequence(event) {
   if (event.code === "ArrowUp") {
+    monkeyElement.src = "./pictures/monkey-up.png";
     upSound.currentTime = 0;
     upSound.play();
     playerSequence.push(options[0]);
@@ -124,6 +129,7 @@ function updatePlayerSequence(event) {
       "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(254, 25, 93, 1), 0 0 82px rgba(254, 25, 93, 1),0 0 92px rgba(254, 25, 93, 1), 0 0 102px rgba(254, 25, 93, 1)"; // up arrow lights up
     setTimeout(() => {
       upArrowElement.style.removeProperty("box-shadow");
+      monkeyElement.src = "./pictures/final-still-monkey.png";
     }, "500");
     checkLastIndex();
   } else if (event.code === "ArrowDown") {
