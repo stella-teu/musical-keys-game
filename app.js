@@ -58,7 +58,7 @@ function updateComputerSequence() {
   computerSequence.push(randomElement);
   loopThroughSequenceWithInterval();
   setTimeout(() => {
-    updatePlayerSequence();
+    activateEventListener();
   }, "1000");
 }
 
@@ -111,11 +111,11 @@ function getRandomElement(arr) {
   return arr[randomIndex];
 }
 
-function updatePlayerSequence() {
-  window.addEventListener("keyup", playerSequenceUpdator);
+function activateEventListener() {
+  window.addEventListener("keyup", updatePlayerSequence);
 }
 
-function playerSequenceUpdator(event) {
+function updatePlayerSequence(event) {
   if (event.code === "ArrowUp") {
     upSound.currentTime = 0;
     upSound.play();
@@ -155,7 +155,7 @@ function playerSequenceUpdator(event) {
   }
   if (playerSequence.length === computerSequence.length) {
     updateScore();
-    window.removeEventListener("keyup", playerSequenceUpdator);
+    window.removeEventListener("keyup", updatePlayerSequence);
     console.log("it works");
   }
 }
