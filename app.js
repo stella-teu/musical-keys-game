@@ -36,7 +36,6 @@ document.querySelector("#try-again").addEventListener("click", startGame);
 
 //                               FUNCTIONS
 function startGame() {
-  monkeyElement.src = "./pictures/final-still-monkey.png";
   loseSound.pause();
   clickSound.play();
   computerSequence = [];
@@ -89,6 +88,7 @@ function loopThroughSequenceWithInterval() {
           monkeyElement.src = "./pictures/final-still-monkey.png";
         }, "500");
       } else if (computerSequence[i] === "right") {
+        monkeyElement.src = "./pictures/monkey-right.png"
         rightSound.currentTime = 0;
         rightSound.play();
         rightArrowElement.style.boxShadow =
@@ -98,6 +98,7 @@ function loopThroughSequenceWithInterval() {
           monkeyElement.src = "./pictures/final-still-monkey.png";
         }, "500");
       } else if (computerSequence[i] === "left") {
+        monkeyElement.src = "./pictures/monkey-left.png"
         leftSound.currentTime = 0;
         leftSound.play();
         leftArrowElement.style.boxShadow =
@@ -149,6 +150,7 @@ function updatePlayerSequence(event) {
     }, "500");
     checkLastIndex();
   } else if (event.code === "ArrowRight") {
+    monkeyElement.src = "./pictures/monkey-right.png"
     rightSound.currentTime = 0;
     rightSound.play();
     playerSequence.push(options[2]);
@@ -160,6 +162,7 @@ function updatePlayerSequence(event) {
     }, "500");
     checkLastIndex();
   } else if (event.code === "ArrowLeft") {
+    monkeyElement.src = "./pictures/monkey-left.png"
     leftSound.currentTime = 0;
     leftSound.play();
     playerSequence.push(options[3]);
