@@ -96,10 +96,14 @@ button {
   padding: 0 10px;
 }
 
+#hard {
+  padding: 0 31px;
+}
+
 #instructions {
   display: block;
   font-size: 30px;
-  margin: 30px 150px 30px 0px;
+  margin: 30px 100px 30px 0px;
   color: white;
 }
 
@@ -111,7 +115,7 @@ span {
 .arrows {
   display: grid;
   grid-template-areas:
-    ". up ."
+    ". up two"
     "left . right"
     ". down .";
   font-size: 125px;
@@ -121,6 +125,10 @@ span {
 
 #up {
   grid-area: up;
+}
+
+#right-up {
+  grid-area: two;
 }
 
 #left {
