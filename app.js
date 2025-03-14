@@ -82,6 +82,7 @@ function loopThroughSequenceWithInterval() {
         monkeyElement.src = "./pictures/monkey-up.png";
         upSound.currentTime = 0;
         upSound.play();
+        upArrowElement.style.zIndex = 1
         upArrowElement.style.boxShadow =
           "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(254, 25, 93, 1), 0 0 82px rgba(254, 25, 93, 1),0 0 92px rgba(254, 25, 93, 1), 0 0 102px rgba(254, 25, 93, 1)"; // up arrow lights up
         setTimeout(() => {
@@ -92,6 +93,7 @@ function loopThroughSequenceWithInterval() {
         monkeyElement.src = "./pictures/monkey-down.png"
         downSound.currentTime = 0;
         downSound.play();
+        downArrowElement.style.zIndex = 1
         downArrowElement.style.boxShadow =
           "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(254, 25, 93, 1), 0 0 82px rgba(254, 25, 93, 1),0 0 92px rgba(254, 25, 93, 1), 0 0 102px rgba(254, 25, 93, 1)"; // down arrow lights up
         setTimeout(() => {
@@ -102,6 +104,7 @@ function loopThroughSequenceWithInterval() {
         monkeyElement.src = "./pictures/monkey-right.png"
         rightSound.currentTime = 0;
         rightSound.play();
+        rightArrowElement.style.zIndex = 1
         rightArrowElement.style.boxShadow =
           "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(52, 11, 255, 1), 0 0 82px rgba(52, 11, 255, 1),0 0 92px rgba(52, 11, 255, 1), 0 0 102px rgba(52, 11, 255, 1)"; //right arrow lights up
         setTimeout(() => {
@@ -112,6 +115,7 @@ function loopThroughSequenceWithInterval() {
         monkeyElement.src = "./pictures/monkey-left.png"
         leftSound.currentTime = 0;
         leftSound.play();
+        leftArrowElement.style.zIndex = 1
         leftArrowElement.style.boxShadow =
           "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(52, 11, 255, 1), 0 0 82px rgba(52, 11, 255, 1),0 0 92px rgba(52, 11, 255, 1), 0 0 102px rgba(52, 11, 255, 1)"; // left arrow lights up
         setTimeout(() => {
