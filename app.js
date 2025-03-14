@@ -29,11 +29,24 @@ const winModalElement = document.getElementById("winning-modal");
 const loseModalElement = document.getElementById("losing-modal");
 const monkeyElement = document.getElementById("monkey");
 const highScoreElement = document.querySelector("#high-score");
+const hardArrowsElement = document.querySelectorAll(".hard-arrows");
+const leftUpArrowElement = document.querySelector("#left-up");
+const rightUpArrowElement = document.querySelector("#right-up");
+const leftDownArrowElement = document.querySelector("#left-down");
+const rightDownArrowElement = document.querySelector("#right-down");
 
 //                               EVENT LISTENERS
 document.querySelector("#start").addEventListener("click", () => {
   clickedInfinite = false;
   highScoreElement.style.display = "none";
+  hardArrowsElement.forEach( (arrow) => {
+    arrow.style.display = "none";
+  });
+  if (options.length > 4){
+    while (options.length > 4){
+      options.pop();
+  }
+}
   startGame();
 });
 document.querySelector("#restart").addEventListener("click", startGame);
@@ -44,6 +57,13 @@ document.querySelector("#infinite").addEventListener("click", () => {
   highScoreElement.style.display = "block";
   startGame();
 });
+document.querySelector("#hard").addEventListener("click", () => {
+  hardArrowsElement.forEach( (arrow) => {
+    arrow.style.display = "block";
+  });
+  options.push("left-up", "right-up", "left-down", "right-down");
+  startGame();
+})
 
 //                               FUNCTIONS
 function startGame() {
@@ -115,11 +135,55 @@ function loopThroughSequenceWithInterval() {
         monkeyElement.src = "./pictures/monkey-left.png"
         leftSound.currentTime = 0;
         leftSound.play();
-        leftArrowElement.style.zIndex = 1
+        leftArrowElement.style.zIndex = 1;
         leftArrowElement.style.boxShadow =
           "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(52, 11, 255, 1), 0 0 82px rgba(52, 11, 255, 1),0 0 92px rgba(52, 11, 255, 1), 0 0 102px rgba(52, 11, 255, 1)"; // left arrow lights up
         setTimeout(() => {
           leftArrowElement.style.removeProperty("box-shadow");
+          monkeyElement.src = "./pictures/final-still-monkey.png";
+        }, "500");
+      } else if (computerSequence[i] === "left-up"){
+        //monkey
+        //sound time
+        //sound play
+        leftUpArrowElement.style.zIndex = 1;
+        leftUpArrowElement.style.boxShadow =
+        "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)"; 
+        setTimeout(() => {
+          leftUpArrowElement.style.removeProperty("box-shadow");
+          monkeyElement.src = "./pictures/final-still-monkey.png";
+        }, "500");
+      } else if (computerSequence[i] === "right-up"){
+        //monkey
+        //sound time
+        //sound play
+        rightUpArrowElement.style.zIndex = 1;
+        rightUpArrowElement.style.boxShadow =
+        "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)"; 
+        setTimeout(() => {
+          rightUpArrowElement.style.removeProperty("box-shadow");
+          monkeyElement.src = "./pictures/final-still-monkey.png";
+        }, "500");
+      } else if (computerSequence[i] === "left-down"){
+        //monkey
+        //sound time
+        //sound play
+        leftDownArrowElement.style.zIndex = 1;
+        leftDownArrowElement.style.boxShadow =
+        "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)"; 
+        setTimeout(() => {
+          leftDownArrowElement.style.removeProperty("box-shadow");
+          monkeyElement.src = "./pictures/final-still-monkey.png";
+        }, "500");
+      } else if (computerSequence[i] === "right-down"){
+        //monkey
+        //sound time
+        //sound play
+        rightDownArrowElement.style.zIndex = 1;
+        rightDownArrowElement.style.boxShadow =
+        "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)"; 
+        setTimeout(() => {
+          rightDownArrowElement.style.removeProperty("box-shadow");
           monkeyElement.src = "./pictures/final-still-monkey.png";
         }, "500");
       }

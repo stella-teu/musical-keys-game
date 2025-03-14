@@ -124,6 +124,10 @@ span {
   align-content: center;
 }
 
+.hard-arrows{
+  display: none;
+}
+
 #up {
   grid-area: up;
 }
