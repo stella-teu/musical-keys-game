@@ -180,7 +180,7 @@ function leftChosen(){
 }
 
 function leftUpChosen(){
-          //monkey
+        monkeyElement.src = "./pictures/left-up-monkey.png";
         //sound time
         //sound play
         leftUpArrowElement.style.zIndex = 1;
@@ -193,7 +193,7 @@ function leftUpChosen(){
 }
 
 function rightUpChosen(){
-          //monkey
+        monkeyElement.src = "./pictures/right-up-monkey.png";
         //sound time
         //sound play
         rightUpArrowElement.style.zIndex = 1;
@@ -206,7 +206,7 @@ function rightUpChosen(){
 }
 
 function leftDownChosen() {
-        //monkey
+        monkeyElement.src = "./pictures/left-down-monkey.png";
         //sound time
         //sound play
         leftDownArrowElement.style.zIndex = 1;
@@ -219,7 +219,7 @@ function leftDownChosen() {
 }
 
 function rightDownChosen() {
-          //monkey
+        monkeyElement.src= "./pictures/left-down-monkey.png";
         //sound time
         //sound play
         rightDownArrowElement.style.zIndex = 1;
@@ -253,7 +253,7 @@ function updatePlayerSequence(event) {
     leftChosen();
     checkLastIndex();
   } else if (event.code === "KeyQ"){
-    playerSequence.push(option[4]);
+    playerSequence.push(options[4]);
     leftUpChosen();
     checkLastIndex();
   } else if (event.code === "KeyW"){
@@ -261,7 +261,7 @@ function updatePlayerSequence(event) {
     rightUpChosen();
     checkLastIndex();
   } else if (event.code === "KeyA"){
-    playerSequence.push(option[6]);
+    playerSequence.push(options[6]);
     leftDownChosen();
     checkLastIndex();
   } else if (event.code === "KeyS"){
