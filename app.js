@@ -107,49 +107,13 @@ function loopThroughSequenceWithInterval() {
       } else if (computerSequence[i] === "left") {
         leftChosen();
       } else if (computerSequence[i] === "left-up"){
-        //monkey
-        //sound time
-        //sound play
-        leftUpArrowElement.style.zIndex = 1;
-        leftUpArrowElement.style.boxShadow =
-        "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)"; 
-        setTimeout(() => {
-          leftUpArrowElement.style.removeProperty("box-shadow");
-          monkeyElement.src = "./pictures/final-still-monkey.png";
-        }, "500");
+        leftUpChosen();
       } else if (computerSequence[i] === "right-up"){
-        //monkey
-        //sound time
-        //sound play
-        rightUpArrowElement.style.zIndex = 1;
-        rightUpArrowElement.style.boxShadow =
-        "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)"; 
-        setTimeout(() => {
-          rightUpArrowElement.style.removeProperty("box-shadow");
-          monkeyElement.src = "./pictures/final-still-monkey.png";
-        }, "500");
+        rightUpChosen();
       } else if (computerSequence[i] === "left-down"){
-        //monkey
-        //sound time
-        //sound play
-        leftDownArrowElement.style.zIndex = 1;
-        leftDownArrowElement.style.boxShadow =
-        "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)"; 
-        setTimeout(() => {
-          leftDownArrowElement.style.removeProperty("box-shadow");
-          monkeyElement.src = "./pictures/final-still-monkey.png";
-        }, "500");
+        leftDownChosen();
       } else if (computerSequence[i] === "right-down"){
-        //monkey
-        //sound time
-        //sound play
-        rightDownArrowElement.style.zIndex = 1;
-        rightDownArrowElement.style.boxShadow =
-        "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)"; 
-        setTimeout(() => {
-          rightDownArrowElement.style.removeProperty("box-shadow");
-          monkeyElement.src = "./pictures/final-still-monkey.png";
-        }, "500");
+        rightDownChosen();
       }
       i++;
       setTimeout(next, "600");
@@ -215,6 +179,58 @@ function leftChosen(){
   }, "500");
 }
 
+function leftUpChosen(){
+          //monkey
+        //sound time
+        //sound play
+        leftUpArrowElement.style.zIndex = 1;
+        leftUpArrowElement.style.boxShadow =
+        "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)"; 
+        setTimeout(() => {
+          leftUpArrowElement.style.removeProperty("box-shadow");
+          monkeyElement.src = "./pictures/final-still-monkey.png";
+        }, "500");
+}
+
+function rightUpChosen(){
+          //monkey
+        //sound time
+        //sound play
+        rightUpArrowElement.style.zIndex = 1;
+        rightUpArrowElement.style.boxShadow =
+        "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)"; 
+        setTimeout(() => {
+          rightUpArrowElement.style.removeProperty("box-shadow");
+          monkeyElement.src = "./pictures/final-still-monkey.png";
+        }, "500");
+}
+
+function leftDownChosen() {
+        //monkey
+        //sound time
+        //sound play
+        leftDownArrowElement.style.zIndex = 1;
+        leftDownArrowElement.style.boxShadow =
+        "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)"; 
+        setTimeout(() => {
+          leftDownArrowElement.style.removeProperty("box-shadow");
+          monkeyElement.src = "./pictures/final-still-monkey.png";
+        }, "500");
+}
+
+function rightDownChosen() {
+          //monkey
+        //sound time
+        //sound play
+        rightDownArrowElement.style.zIndex = 1;
+        rightDownArrowElement.style.boxShadow =
+        "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)"; 
+        setTimeout(() => {
+          rightDownArrowElement.style.removeProperty("box-shadow");
+          monkeyElement.src = "./pictures/final-still-monkey.png";
+        }, "500");
+}
+
 function activateEventListener() {
   window.addEventListener("keyup", updatePlayerSequence);
 }
@@ -235,6 +251,22 @@ function updatePlayerSequence(event) {
   } else if (event.code === "ArrowLeft") {
     playerSequence.push(options[3]);
     leftChosen();
+    checkLastIndex();
+  } else if (event.code === "KeyQ"){
+    playerSequence.push(option[4]);
+    leftUpChosen();
+    checkLastIndex();
+  } else if (event.code === "KeyW"){
+    playerSequence.push(options[5]);
+    rightUpChosen();
+    checkLastIndex();
+  } else if (event.code === "KeyA"){
+    playerSequence.push(option[6]);
+    leftDownChosen();
+    checkLastIndex();
+  } else if (event.code === "KeyS"){
+    playerSequence.push(options[7]);
+    rightDownChosen();
     checkLastIndex();
   }
 }
