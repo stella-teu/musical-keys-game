@@ -99,49 +99,13 @@ function loopThroughSequenceWithInterval() {
   function next() {
     if (i < computerSequence.length) {
       if (computerSequence[i] === "up") {
-        monkeyElement.src = "./pictures/monkey-up.png";
-        upSound.currentTime = 0;
-        upSound.play();
-        upArrowElement.style.zIndex = 1
-        upArrowElement.style.boxShadow =
-          "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(254, 25, 93, 1), 0 0 82px rgba(254, 25, 93, 1),0 0 92px rgba(254, 25, 93, 1), 0 0 102px rgba(254, 25, 93, 1)"; // up arrow lights up
-        setTimeout(() => {
-          upArrowElement.style.removeProperty("box-shadow");
-          monkeyElement.src = "./pictures/final-still-monkey.png";
-        }, "500");
+        upChosen();
       } else if (computerSequence[i] === "down") {
-        monkeyElement.src = "./pictures/monkey-down.png"
-        downSound.currentTime = 0;
-        downSound.play();
-        downArrowElement.style.zIndex = 1
-        downArrowElement.style.boxShadow =
-          "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(254, 25, 93, 1), 0 0 82px rgba(254, 25, 93, 1),0 0 92px rgba(254, 25, 93, 1), 0 0 102px rgba(254, 25, 93, 1)"; // down arrow lights up
-        setTimeout(() => {
-          downArrowElement.style.removeProperty("box-shadow");
-          monkeyElement.src = "./pictures/final-still-monkey.png";
-        }, "500");
+        downChosen();
       } else if (computerSequence[i] === "right") {
-        monkeyElement.src = "./pictures/monkey-right.png"
-        rightSound.currentTime = 0;
-        rightSound.play();
-        rightArrowElement.style.zIndex = 1
-        rightArrowElement.style.boxShadow =
-          "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(52, 11, 255, 1), 0 0 82px rgba(52, 11, 255, 1),0 0 92px rgba(52, 11, 255, 1), 0 0 102px rgba(52, 11, 255, 1)"; //right arrow lights up
-        setTimeout(() => {
-          rightArrowElement.style.removeProperty("box-shadow");
-          monkeyElement.src = "./pictures/final-still-monkey.png";
-        }, "500");
+        rightChosen();
       } else if (computerSequence[i] === "left") {
-        monkeyElement.src = "./pictures/monkey-left.png"
-        leftSound.currentTime = 0;
-        leftSound.play();
-        leftArrowElement.style.zIndex = 1;
-        leftArrowElement.style.boxShadow =
-          "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(52, 11, 255, 1), 0 0 82px rgba(52, 11, 255, 1),0 0 92px rgba(52, 11, 255, 1), 0 0 102px rgba(52, 11, 255, 1)"; // left arrow lights up
-        setTimeout(() => {
-          leftArrowElement.style.removeProperty("box-shadow");
-          monkeyElement.src = "./pictures/final-still-monkey.png";
-        }, "500");
+        leftChosen();
       } else if (computerSequence[i] === "left-up"){
         //monkey
         //sound time
@@ -199,58 +163,78 @@ function getRandomElement(arr) {
   return arr[randomIndex];
 }
 
+function upChosen(){
+  monkeyElement.src = "./pictures/monkey-up.png";
+  upSound.currentTime = 0;
+  upSound.play();
+  upArrowElement.style.zIndex = 1
+  upArrowElement.style.boxShadow =
+    "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(254, 25, 93, 1), 0 0 82px rgba(254, 25, 93, 1),0 0 92px rgba(254, 25, 93, 1), 0 0 102px rgba(254, 25, 93, 1)"; // up arrow lights up
+  setTimeout(() => {
+    upArrowElement.style.removeProperty("box-shadow");
+    monkeyElement.src = "./pictures/final-still-monkey.png";
+  }, "500");
+}
+
+function downChosen(){
+  monkeyElement.src = "./pictures/monkey-down.png"
+  downSound.currentTime = 0;
+  downSound.play();
+  downArrowElement.style.zIndex = 1
+  downArrowElement.style.boxShadow =
+    "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(254, 25, 93, 1), 0 0 82px rgba(254, 25, 93, 1),0 0 92px rgba(254, 25, 93, 1), 0 0 102px rgba(254, 25, 93, 1)"; // down arrow lights up
+  setTimeout(() => {
+    downArrowElement.style.removeProperty("box-shadow");
+    monkeyElement.src = "./pictures/final-still-monkey.png";
+  }, "500");
+}
+
+function rightChosen(){
+  monkeyElement.src = "./pictures/monkey-right.png"
+  rightSound.currentTime = 0;
+  rightSound.play();
+  rightArrowElement.style.zIndex = 1
+  rightArrowElement.style.boxShadow =
+    "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(52, 11, 255, 1), 0 0 82px rgba(52, 11, 255, 1),0 0 92px rgba(52, 11, 255, 1), 0 0 102px rgba(52, 11, 255, 1)"; //right arrow lights up
+  setTimeout(() => {
+    rightArrowElement.style.removeProperty("box-shadow");
+    monkeyElement.src = "./pictures/final-still-monkey.png";
+  }, "500");
+}
+
+function leftChosen(){
+  monkeyElement.src = "./pictures/monkey-left.png"
+  leftSound.currentTime = 0;
+  leftSound.play();
+  leftArrowElement.style.zIndex = 1;
+  leftArrowElement.style.boxShadow =
+    "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(52, 11, 255, 1), 0 0 82px rgba(52, 11, 255, 1),0 0 92px rgba(52, 11, 255, 1), 0 0 102px rgba(52, 11, 255, 1)"; // left arrow lights up
+  setTimeout(() => {
+    leftArrowElement.style.removeProperty("box-shadow");
+    monkeyElement.src = "./pictures/final-still-monkey.png";
+  }, "500");
+}
+
 function activateEventListener() {
   window.addEventListener("keyup", updatePlayerSequence);
 }
 
 function updatePlayerSequence(event) {
   if (event.code === "ArrowUp") {
-    monkeyElement.src = "./pictures/monkey-up.png";
-    upSound.currentTime = 0;
-    upSound.play();
     playerSequence.push(options[0]);
-    upArrowElement.style.boxShadow =
-      "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(254, 25, 93, 1), 0 0 82px rgba(254, 25, 93, 1),0 0 92px rgba(254, 25, 93, 1), 0 0 102px rgba(254, 25, 93, 1)"; // up arrow lights up
-    setTimeout(() => {
-      upArrowElement.style.removeProperty("box-shadow");
-      monkeyElement.src = "./pictures/final-still-monkey.png";
-    }, "500");
+    upChosen();
     checkLastIndex();
   } else if (event.code === "ArrowDown") {
-    monkeyElement.src = "./pictures/monkey-down.png"
-    downSound.currentTime = 0;
-    downSound.play();
     playerSequence.push(options[1]);
-    downArrowElement.style.boxShadow =
-      "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(254, 25, 93, 1), 0 0 82px rgba(254, 25, 93, 1),0 0 92px rgba(254, 25, 93, 1), 0 0 102px rgba(254, 25, 93, 1)"; // down arrow lights up
-    setTimeout(() => {
-      downArrowElement.style.removeProperty("box-shadow");
-      monkeyElement.src = "./pictures/final-still-monkey.png";
-    }, "500");
+    downChosen();
     checkLastIndex();
   } else if (event.code === "ArrowRight") {
-    monkeyElement.src = "./pictures/monkey-right.png"
-    rightSound.currentTime = 0;
-    rightSound.play();
     playerSequence.push(options[2]);
-    rightArrowElement.style.boxShadow =
-      "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(52, 11, 255, 1), 0 0 82px rgba(52, 11, 255, 1),0 0 92px rgba(52, 11, 255, 1), 0 0 102px rgba(52, 11, 255, 1)"; //right arrow lights up
-    setTimeout(() => {
-      rightArrowElement.style.removeProperty("box-shadow");
-      monkeyElement.src = "./pictures/final-still-monkey.png";
-    }, "500");
+    rightChosen();
     checkLastIndex();
   } else if (event.code === "ArrowLeft") {
-    monkeyElement.src = "./pictures/monkey-left.png"
-    leftSound.currentTime = 0;
-    leftSound.play();
     playerSequence.push(options[3]);
-    leftArrowElement.style.boxShadow =
-      "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(52, 11, 255, 1), 0 0 82px rgba(52, 11, 255, 1),0 0 92px rgba(52, 11, 255, 1), 0 0 102px rgba(52, 11, 255, 1)"; //right arrow lights up
-    setTimeout(() => {
-      leftArrowElement.style.removeProperty("box-shadow");
-      monkeyElement.src = "./pictures/final-still-monkey.png";
-    }, "500");
+    leftChosen();
     checkLastIndex();
   }
 }
