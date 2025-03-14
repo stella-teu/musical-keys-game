@@ -39,14 +39,14 @@ const rightDownArrowElement = document.querySelector("#right-down");
 document.querySelector("#start").addEventListener("click", () => {
   clickedInfinite = false;
   highScoreElement.style.display = "none";
-  hardArrowsElement.forEach( (arrow) => {
+  hardArrowsElement.forEach((arrow) => {
     arrow.style.display = "none";
   });
-  if (options.length > 4){
-    while (options.length > 4){
+  if (options.length > 4) {
+    while (options.length > 4) {
       options.pop();
+    }
   }
-}
   startGame();
 });
 document.querySelector("#restart").addEventListener("click", startGame);
@@ -58,12 +58,12 @@ document.querySelector("#infinite").addEventListener("click", () => {
   startGame();
 });
 document.querySelector("#hard").addEventListener("click", () => {
-  hardArrowsElement.forEach( (arrow) => {
+  hardArrowsElement.forEach((arrow) => {
     arrow.style.display = "block";
   });
   options.push("left-up", "right-up", "left-down", "right-down");
   startGame();
-})
+});
 
 //                               FUNCTIONS
 function startGame() {
@@ -106,13 +106,13 @@ function loopThroughSequenceWithInterval() {
         rightChosen();
       } else if (computerSequence[i] === "left") {
         leftChosen();
-      } else if (computerSequence[i] === "left-up"){
+      } else if (computerSequence[i] === "left-up") {
         leftUpChosen();
-      } else if (computerSequence[i] === "right-up"){
+      } else if (computerSequence[i] === "right-up") {
         rightUpChosen();
-      } else if (computerSequence[i] === "left-down"){
+      } else if (computerSequence[i] === "left-down") {
         leftDownChosen();
-      } else if (computerSequence[i] === "right-down"){
+      } else if (computerSequence[i] === "right-down") {
         rightDownChosen();
       }
       i++;
@@ -127,11 +127,11 @@ function getRandomElement(arr) {
   return arr[randomIndex];
 }
 
-function upChosen(){
+function upChosen() {
   monkeyElement.src = "./pictures/monkey-up.png";
   upSound.currentTime = 0;
   upSound.play();
-  upArrowElement.style.zIndex = 1
+  upArrowElement.style.zIndex = 1;
   upArrowElement.style.boxShadow =
     "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(254, 25, 93, 1), 0 0 82px rgba(254, 25, 93, 1),0 0 92px rgba(254, 25, 93, 1), 0 0 102px rgba(254, 25, 93, 1)"; // up arrow lights up
   setTimeout(() => {
@@ -140,11 +140,11 @@ function upChosen(){
   }, "500");
 }
 
-function downChosen(){
-  monkeyElement.src = "./pictures/monkey-down.png"
+function downChosen() {
+  monkeyElement.src = "./pictures/monkey-down.png";
   downSound.currentTime = 0;
   downSound.play();
-  downArrowElement.style.zIndex = 1
+  downArrowElement.style.zIndex = 1;
   downArrowElement.style.boxShadow =
     "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(254, 25, 93, 1), 0 0 82px rgba(254, 25, 93, 1),0 0 92px rgba(254, 25, 93, 1), 0 0 102px rgba(254, 25, 93, 1)"; // down arrow lights up
   setTimeout(() => {
@@ -153,11 +153,11 @@ function downChosen(){
   }, "500");
 }
 
-function rightChosen(){
-  monkeyElement.src = "./pictures/monkey-right.png"
+function rightChosen() {
+  monkeyElement.src = "./pictures/monkey-right.png";
   rightSound.currentTime = 0;
   rightSound.play();
-  rightArrowElement.style.zIndex = 1
+  rightArrowElement.style.zIndex = 1;
   rightArrowElement.style.boxShadow =
     "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(52, 11, 255, 1), 0 0 82px rgba(52, 11, 255, 1),0 0 92px rgba(52, 11, 255, 1), 0 0 102px rgba(52, 11, 255, 1)"; //right arrow lights up
   setTimeout(() => {
@@ -166,8 +166,8 @@ function rightChosen(){
   }, "500");
 }
 
-function leftChosen(){
-  monkeyElement.src = "./pictures/monkey-left.png"
+function leftChosen() {
+  monkeyElement.src = "./pictures/monkey-left.png";
   leftSound.currentTime = 0;
   leftSound.play();
   leftArrowElement.style.zIndex = 1;
@@ -179,56 +179,56 @@ function leftChosen(){
   }, "500");
 }
 
-function leftUpChosen(){
-        monkeyElement.src = "./pictures/left-up-monkey.png";
-        //sound time
-        //sound play
-        leftUpArrowElement.style.zIndex = 1;
-        leftUpArrowElement.style.boxShadow =
-        "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)"; 
-        setTimeout(() => {
-          leftUpArrowElement.style.removeProperty("box-shadow");
-          monkeyElement.src = "./pictures/final-still-monkey.png";
-        }, "500");
+function leftUpChosen() {
+  monkeyElement.src = "./pictures/left-up-monkey.png";
+  //sound time
+  //sound play
+  leftUpArrowElement.style.zIndex = 1;
+  leftUpArrowElement.style.boxShadow =
+    "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)";
+  setTimeout(() => {
+    leftUpArrowElement.style.removeProperty("box-shadow");
+    monkeyElement.src = "./pictures/final-still-monkey.png";
+  }, "500");
 }
 
-function rightUpChosen(){
-        monkeyElement.src = "./pictures/right-up-monkey.png";
-        //sound time
-        //sound play
-        rightUpArrowElement.style.zIndex = 1;
-        rightUpArrowElement.style.boxShadow =
-        "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)"; 
-        setTimeout(() => {
-          rightUpArrowElement.style.removeProperty("box-shadow");
-          monkeyElement.src = "./pictures/final-still-monkey.png";
-        }, "500");
+function rightUpChosen() {
+  monkeyElement.src = "./pictures/right-up-monkey.png";
+  //sound time
+  //sound play
+  rightUpArrowElement.style.zIndex = 1;
+  rightUpArrowElement.style.boxShadow =
+    "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)";
+  setTimeout(() => {
+    rightUpArrowElement.style.removeProperty("box-shadow");
+    monkeyElement.src = "./pictures/final-still-monkey.png";
+  }, "500");
 }
 
 function leftDownChosen() {
-        monkeyElement.src = "./pictures/left-down-monkey.png";
-        //sound time
-        //sound play
-        leftDownArrowElement.style.zIndex = 1;
-        leftDownArrowElement.style.boxShadow =
-        "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)"; 
-        setTimeout(() => {
-          leftDownArrowElement.style.removeProperty("box-shadow");
-          monkeyElement.src = "./pictures/final-still-monkey.png";
-        }, "500");
+  monkeyElement.src = "./pictures/left-down-monkey.png";
+  //sound time
+  //sound play
+  leftDownArrowElement.style.zIndex = 1;
+  leftDownArrowElement.style.boxShadow =
+    "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)";
+  setTimeout(() => {
+    leftDownArrowElement.style.removeProperty("box-shadow");
+    monkeyElement.src = "./pictures/final-still-monkey.png";
+  }, "500");
 }
 
 function rightDownChosen() {
-        monkeyElement.src= "./pictures/left-down-monkey.png";
-        //sound time
-        //sound play
-        rightDownArrowElement.style.zIndex = 1;
-        rightDownArrowElement.style.boxShadow =
-        "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)"; 
-        setTimeout(() => {
-          rightDownArrowElement.style.removeProperty("box-shadow");
-          monkeyElement.src = "./pictures/final-still-monkey.png";
-        }, "500");
+  monkeyElement.src = "./pictures/left-down-monkey.png";
+  //sound time
+  //sound play
+  rightDownArrowElement.style.zIndex = 1;
+  rightDownArrowElement.style.boxShadow =
+    "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)";
+  setTimeout(() => {
+    rightDownArrowElement.style.removeProperty("box-shadow");
+    monkeyElement.src = "./pictures/final-still-monkey.png";
+  }, "500");
 }
 
 function activateEventListener() {
@@ -252,27 +252,30 @@ function updatePlayerSequence(event) {
     playerSequence.push(options[3]);
     leftChosen();
     checkLastIndex();
-  } else if (event.code === "KeyQ"){
+  } else if (event.code === "KeyQ") {
     playerSequence.push(options[4]);
     leftUpChosen();
     checkLastIndex();
-  } else if (event.code === "KeyW"){
+  } else if (event.code === "KeyW") {
     playerSequence.push(options[5]);
     rightUpChosen();
     checkLastIndex();
-  } else if (event.code === "KeyA"){
+  } else if (event.code === "KeyA") {
     playerSequence.push(options[6]);
     leftDownChosen();
     checkLastIndex();
-  } else if (event.code === "KeyS"){
+  } else if (event.code === "KeyS") {
     playerSequence.push(options[7]);
     rightDownChosen();
     checkLastIndex();
   }
 }
 
-function checkLastIndex (){
-  if (playerSequence[playerSequence.length - 1] !== computerSequence[playerSequence.length - 1]){
+function checkLastIndex() {
+  if (
+    playerSequence[playerSequence.length - 1] !==
+    computerSequence[playerSequence.length - 1]
+  ) {
     loseSound.currentTime = 0;
     loseSound.play();
     loseModalElement.style.display = "block";
@@ -283,14 +286,14 @@ function checkLastIndex (){
 }
 
 function updateScore() {
-    scoreSound.play();
-    playerScore += 1;
-    if (playerScore > highScore){
-      highScore = playerScore;
-      highScoreElement.textContent = "High Score: " + highScore;
-    }
-    scoreElement.textContent = "Score: " + playerScore;
-    checkWin();
+  scoreSound.play();
+  playerScore += 1;
+  if (playerScore > highScore) {
+    highScore = playerScore;
+    highScoreElement.textContent = "High Score: " + highScore;
+  }
+  scoreElement.textContent = "Score: " + playerScore;
+  checkWin();
 }
 
 function checkWin() {
