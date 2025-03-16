@@ -1,13 +1,26 @@
 # Musical Keys
+Musical Keys is a rhythm-based memory game inspired by Simon Says. The goal is to correctly repeat an increasingly complex sequence of keys to earn points and unlock higher difficulty levels. Can you keep up with the beat?
 ![Game Image](./pictures/game-picture.png)
-This game is similar to Simon Says, the program will show a sequence of buttons for the player to succesfully copy. The player copies this sequence through using the arrows on their keyboard. In the standard version, the player has to succesfully copy a sequence of 10 to win. The infinite mode allows them to play for however long they want with a high score. The hard mode adds 4 more arrows, which are copyable through the Q, W, A, and S keys. The player can play hard mode and infinite mode at the same time if they want to. Also, there's a dancing monkey.
+This game challenges your memory and reflexes. The program will display a sequence of buttons that the player must correctly repeat using the arrow keys.
+
+In **Standard Mode**, the player wins after correctly copying a sequence of 10 steps.
+In **Infinite Mode**, the player can keep going to set a high score.
+**Hard Mode** adds four additional keys (Q, W, A, S) to increase the challenge.
+Players can combine Hard Mode and Infinite Mode for the ultimate test!
+Oh — and there's a dancing monkey to cheer you on. 🐒
 
 ![Hard Mode of Game](./pictures/hard-version.png)
-> This is the hard mode.
+> The hard mode with extra keys.
 
-You can play the game on desktop here: https://stella-teu.github.io/musical-keys-game/
+You can play the game on desktop [here](https://stella-teu.github.io/musical-keys-game/)!
 
-**Technologies used:** JavaScript, HTML, CSS, Photoshop, ChatGPT (specifically Drawing Upgrader by Ivo Treder)
+## Technologies Used
+- **JavaScript** – Game logic and interactivity
+- **HTML** – Structure and layout
+- **CSS** – Styling and animations
+- **Photoshop** – Designing game assets
+- **ChatGPT** – Assisted with drawings (Drawing Upgrader by Ivo Treder)
 
 ## Next Steps
-To improve the game, I'd like to add a timer version, in which the player has limited time to copy the sequence. The program would also go faster. I also want to see if I could include real songs to play with the keys.
+- **Timer Mode** – Add a time limit to increase the challenge and speed up the sequence.  
+- **Music Integration** – Allow players to play along with real songs using the keys.  
