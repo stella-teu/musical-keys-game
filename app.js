@@ -6,18 +6,27 @@ let options = ["up", "down", "right", "left"];
 let clickedInfinite = false;
 let highScore = 0;
 const loseSound = new Audio("./sound-effects/boo-sound-effect.mp3");
-const upSound = new Audio("./sound-effects/C-note-up.wav");
-upSound.volume = 0.1;
-const leftSound = new Audio("./sound-effects/E-note-left.wav");
-leftSound.volume = 0.1;
-const rightSound = new Audio("./sound-effects/G-noter-right.wav");
-rightSound.volume = 0.1;
-const downSound = new Audio("./sound-effects/A-note-down.wav");
-downSound.volume = 0.1;
+loseSound.volume = 0.1;
+const upSound = new Audio("./sound-effects/d-note-up.mp3");
+upSound.volume = 0.5;
+const leftSound = new Audio("./sound-effects/f-note-left.mp3");
+leftSound.volume = 0.5;
+const rightSound = new Audio("./sound-effects/g-note-right.mp3");
+rightSound.volume = 0.5;
+const downSound = new Audio("./sound-effects/b-note-down.mp3");
+downSound.volume = 0.5;
 const clickSound = new Audio("./sound-effects/clicking.wav");
 const winSound = new Audio("./sound-effects/yay-sound.mp3");
 const scoreSound = new Audio("./sound-effects/score.wav");
-scoreSound.volume = 0.1;
+scoreSound.volume = 0.05;
+const upLeftSound = new Audio("./sound-effects/c-note-up-left.mp3");
+upLeftSound.volume = 0.5;
+const upRightSound = new Audio("./sound-effects/e-note-up-right.mp3");
+upRightSound.volume = 0.5;
+const downLeftSound = new Audio("./sound-effects/a-note-down-left.mp3");
+downLeftSound.volume = 0.5;
+const downRightSound = new Audio("./sound-effects/c-note-down-right.mp3");
+downRightSound.volume = 0.5;
 
 //                               CACHED ELEMENTS
 const upArrowElement = document.querySelector("#up");
@@ -181,8 +190,8 @@ function leftChosen() {
 
 function leftUpChosen() {
   monkeyElement.src = "./pictures/left-up-monkey.png";
-  //sound time
-  //sound play
+  upLeftSound.currentTime  = 0;
+  upLeftSound.play();
   leftUpArrowElement.style.zIndex = 1;
   leftUpArrowElement.style.boxShadow =
     "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)";
@@ -194,8 +203,8 @@ function leftUpChosen() {
 
 function rightUpChosen() {
   monkeyElement.src = "./pictures/right-up-monkey.png";
-  //sound time
-  //sound play
+  upRightSound.currentTime = 0;
+  upRightSound.play();
   rightUpArrowElement.style.zIndex = 1;
   rightUpArrowElement.style.boxShadow =
     "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)";
@@ -207,8 +216,8 @@ function rightUpChosen() {
 
 function leftDownChosen() {
   monkeyElement.src = "./pictures/left-down-monkey.png";
-  //sound time
-  //sound play
+  downLeftSound.currentTime = 0;
+  downLeftSound.play();
   leftDownArrowElement.style.zIndex = 1;
   leftDownArrowElement.style.boxShadow =
     "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)";
@@ -220,8 +229,8 @@ function leftDownChosen() {
 
 function rightDownChosen() {
   monkeyElement.src = "./pictures/left-down-monkey.png";
-  //sound time
-  //sound play
+  downRightSound.currentTime = 0;
+  downRightSound.play();
   rightDownArrowElement.style.zIndex = 1;
   rightDownArrowElement.style.boxShadow =
     "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(106, 229, 106, 1), 0 0 82px rgba(106, 229, 106, 1),0 0 92px rgba(106, 229, 106, 1), 0 0 102px rgba(106, 229, 106, 1)";
