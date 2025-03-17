@@ -21,6 +21,10 @@ You can play the game on desktop [here](https://stella-teu.github.io/musical-key
 - **Photoshop** – Designing game assets
 - **ChatGPT** – Assisted with drawings (Drawing Upgrader by Ivo Treder)
 
+## Attributions
+- [Tilt Neon Font](https://fonts.google.com/specimen/Tilt+Neon?query=neon) from Google Fonts
+- [Glow Effect](https://css-tricks.com/how-to-create-neon-text-with-css/) fom CSS Tricks
+
 ## Next Steps
 - **Timer Mode** – Add a time limit to increase the challenge and speed up the sequence.  
 - **Music Integration** – Allow players to play along with real songs using the keys.
