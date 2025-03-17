@@ -46,9 +46,9 @@ const rightDownArrowElement = document.querySelector("#right-down");
 
 //                               EVENT LISTENERS
 document.querySelector("#start").addEventListener("click", () => {
-  clickedInfinite = false;
+  clickedInfinite = false; //turns off infinite mode if clicked before
   highScoreElement.style.display = "none";
-  hardArrowsElement.forEach((arrow) => {
+  hardArrowsElement.forEach((arrow) => { //turns off hard mode if clicked before
     arrow.style.display = "none";
   });
   if (options.length > 4) {
@@ -62,7 +62,7 @@ document.querySelector("#restart").addEventListener("click", startGame);
 document.querySelector("#play-again").addEventListener("click", startGame);
 document.querySelector("#try-again").addEventListener("click", startGame);
 document.querySelector("#infinite").addEventListener("click", () => {
-  clickedInfinite = true;
+  clickedInfinite = true; //needed for later, so that game does not end when player reaches 10 points
   highScoreElement.style.display = "block";
   startGame();
 });
@@ -88,7 +88,7 @@ function startGame() {
 }
 
 function init() {
-  //puts time interval between different "levels"
+  //puts time interval between different arrows
   setTimeout(() => {
     updateComputerSequence();
   }, "1500");
@@ -101,6 +101,11 @@ function updateComputerSequence() {
   setTimeout(() => {
     activateEventListener();
   }, "1000");
+}
+
+function getRandomElement(arr) {
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
 }
 
 function loopThroughSequenceWithInterval() {
@@ -129,11 +134,6 @@ function loopThroughSequenceWithInterval() {
     }
   }
   next();
-}
-
-function getRandomElement(arr) {
-  const randomIndex = Math.floor(Math.random() * arr.length);
-  return arr[randomIndex];
 }
 
 function upChosen() {
@@ -240,7 +240,7 @@ function rightDownChosen() {
   }, "500");
 }
 
-function activateEventListener() {
+function activateEventListener() { //adds event listener AFTER program has chosen sequence, limits playe mistakes
   window.addEventListener("keyup", updatePlayerSequence);
 }
 
@@ -283,14 +283,14 @@ function updatePlayerSequence(event) {
 function checkLastIndex() {
   if (
     playerSequence[playerSequence.length - 1] !==
-    computerSequence[playerSequence.length - 1]
+    computerSequence[playerSequence.length - 1] //checks if last index entered in playerSequence matches element with same index in computerSequence
   ) {
     loseSound.currentTime = 0;
     loseSound.play();
     loseModalElement.style.display = "block";
   } else if (playerSequence.length === computerSequence.length) {
     updateScore();
-    window.removeEventListener("keyup", updatePlayerSequence);
+    window.removeEventListener("keyup", updatePlayerSequence); //remove key event listener again to limit messing up playerSequence
   }
 }
 
@@ -311,7 +311,7 @@ function checkWin() {
     winSound.play();
     winModalElement.style.display = "block";
   } else {
-    playerSequence = [];
+    playerSequence = []; //resets playerSequence to blank slate to restart everything
     init();
   }
 }

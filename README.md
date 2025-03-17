@@ -23,4 +23,5 @@ You can play the game on desktop [here](https://stella-teu.github.io/musical-key
 
 ## Next Steps
 - **Timer Mode** – Add a time limit to increase the challenge and speed up the sequence.  
-- **Music Integration** – Allow players to play along with real songs using the keys.  
+- **Music Integration** – Allow players to play along with real songs using the keys.
+- **Add Media Queries** - Make CSS look better for bigger or smaller screens.
