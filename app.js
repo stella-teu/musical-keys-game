@@ -1,3 +1,7 @@
+// Emre's notes from project presentation
+// - Great idea, love the notes on a scale
+// - Great coding style, good spacing, and commenting
+
 //                               VARIABLES
 let computerSequence = [];
 let playerSequence = [];
@@ -5,6 +9,8 @@ let playerScore;
 let options = ["up", "down", "right", "left"];
 let clickedInfinite = false;
 let highScore = 0;
+
+//                               CONSTANTS
 const loseSound = new Audio("./sound-effects/boo-sound-effect.mp3");
 loseSound.volume = 0.1;
 const upSound = new Audio("./sound-effects/d-note-up.mp3");
@@ -48,7 +54,8 @@ const rightDownArrowElement = document.querySelector("#right-down");
 document.querySelector("#start").addEventListener("click", () => {
   clickedInfinite = false; //turns off infinite mode if clicked before
   highScoreElement.style.display = "none";
-  hardArrowsElement.forEach((arrow) => { //turns off hard mode if clicked before
+  hardArrowsElement.forEach((arrow) => {
+    //turns off hard mode if clicked before
     arrow.style.display = "none";
   });
   if (options.length > 4) {
@@ -136,11 +143,14 @@ function loopThroughSequenceWithInterval() {
   next();
 }
 
+// Lots of duplicate code here - could this be one function?
+// const direction = (imgSrc, time = 0, soundFunc, zIndex = 1, boxShadowCss, delayFunc) => {}
 function upChosen() {
   monkeyElement.src = "./pictures/monkey-up.png";
   upSound.currentTime = 0;
   upSound.play();
   upArrowElement.style.zIndex = 1;
+  // Maybe cleaner to put this CSS into the CSS file
   upArrowElement.style.boxShadow =
     "0 0 10px rgba(1, 1, 1), 0 0 21px rgba(1, 1, 1), 0 0 42px rgba(254, 25, 93, 1), 0 0 82px rgba(254, 25, 93, 1),0 0 92px rgba(254, 25, 93, 1), 0 0 102px rgba(254, 25, 93, 1)"; // up arrow lights up
   setTimeout(() => {
@@ -190,7 +200,7 @@ function leftChosen() {
 
 function leftUpChosen() {
   monkeyElement.src = "./pictures/left-up-monkey.png";
-  upLeftSound.currentTime  = 0;
+  upLeftSound.currentTime = 0;
   upLeftSound.play();
   leftUpArrowElement.style.zIndex = 1;
   leftUpArrowElement.style.boxShadow =
@@ -240,7 +250,8 @@ function rightDownChosen() {
   }, "500");
 }
 
-function activateEventListener() { //adds event listener AFTER program has chosen sequence, limits playe mistakes
+function activateEventListener() {
+  //adds event listener AFTER program has chosen sequence, limits playe mistakes
   window.addEventListener("keyup", updatePlayerSequence);
 }
 
